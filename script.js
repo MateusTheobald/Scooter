@@ -1,9 +1,17 @@
-const socket = new WebSocket(`ws://${window.location.host}`);
+const socket = new WebSocket(`ws://localhost:3000`);
+const connectBtn = document.getElementById("connectBtn");
+
 const gauges = {
   vel: document.getElementById("velocidade"),
   rpm: document.getElementById("rpm"),
   acc: document.getElementById("aceleracao"),
 };
+
+connectBtn.addEventListener("click", () => {
+  socket.send("connect-arduino");
+  connectBtn.innerText = "🔌 Conectando...";
+  setTimeout(() => (connectBtn.innerText = "✅ Conectado!"), 2000);
+});
 
 socket.onmessage = (event) => {
   const [vel, rpm, acc] = event.data.trim().split(",");
@@ -21,7 +29,3 @@ function updateGauge(type, value) {
   if (type === "rpm") document.getElementById("rpm-value").innerText = `${value}`;
   if (type === "acc") document.getElementById("acc-value").innerText = `${value}%`;
 }
-
-document.getElementById("connectBtn").addEventListener("click", () => {
-  alert("Conexão automática — se o Arduino estiver ligado, ele já está transmitindo dados!");
-});
