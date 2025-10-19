@@ -1,0 +1,15 @@
+{
+  "name": "scooter-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard para monitorar Arduino via Bluetooth/Serial",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "serialport": "^12.0.0",
+    "ws": "^8.18.0"
+  }
+}

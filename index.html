@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scooter Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Scooter Dashboard</h1>
+  <p>Monitoramento em Tempo Real via Bluetooth</p>
+
+  <button id="connectBtn">🔗 Conectar Arduino</button>
+
+  <div class="gauges">
+    <div class="gauge">
+      <div class="circle" id="velocidade"></div>
+      <h2>Velocidade</h2>
+      <p id="vel-value">0 KM/H</p>
+    </div>
+    <div class="gauge">
+      <div class="circle" id="rpm"></div>
+      <h2>RPM</h2>
+      <p id="rpm-value">0</p>
+    </div>
+    <div class="gauge">
+      <div class="circle" id="aceleracao"></div>
+      <h2>Aceleração</h2>
+      <p id="acc-value">0%</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
